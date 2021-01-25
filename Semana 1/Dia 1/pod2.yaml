@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod-2
+spec:
+  containers:
+  - name: demo-pod-2
+    image: ubuntu
+    command: ["/bin/bash", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+    env:
+      - name: ENV_VARIABLE
+        valueFrom:
+          secretKeyRef:
+            name: elmensaje
+            key: mensaje
